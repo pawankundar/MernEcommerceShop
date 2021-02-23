@@ -1,4 +1,5 @@
 import React, { Children } from 'react';
+import NavigationMenu from './NavigationMenu';
 
 const Base = ({Title = "My Title",
 description="This is the description",
@@ -7,6 +8,7 @@ className ='bg-dark text-white p-4',
  )=>{
     return(
         <div>
+            <NavigationMenu/>
             <div className="container-fluid">
                 <div className="jumbotron bg-dark text-white text-center">
                     <h2 className="display-4">{Title}</h2>
