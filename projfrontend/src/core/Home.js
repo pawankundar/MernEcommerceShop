@@ -9,10 +9,9 @@ const Home = ()=>{
     console.log('api is', API)
 return(
     
-    <Base Title="yayy" className="text-white" description ="decription from main component">
+    <Base Title="Home Page" className="text-white" description ="This is the HomePage">
         <div className="row">
-            <div className="col-2"><button className="btn btn-success">button 1</button></div>
-            <div className="col-2"><button className="btn btn-success">button 2</button></div>
+           
         </div>
     </Base>
 )

@@ -9,8 +9,6 @@ const currentTab =(history,path)=>{
 
 }
 
-
-
 const NavigationMenu =(history)=>(
     <div>
         <ul className="nav nav-tabs bg-dark">
@@ -35,12 +33,12 @@ const NavigationMenu =(history)=>(
                 </Link>
             </li>
             <li className="nav-item">
-                <Link style={currentTab(history,'/signup')} className='nav-link'>
+                <Link style={currentTab(history,'/signup')} to='/signup' className='nav-link'>
                     Signup
                 </Link>
             </li>
             <li className="nav-item">
-                <Link style={currentTab(history,'/signin')} className='nav-link'>
+                <Link style={currentTab(history,'/signin')} to='/signin'className='nav-link'>
                     Sign-In
                 </Link>
             </li>

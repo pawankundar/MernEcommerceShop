@@ -22,9 +22,9 @@ className ='bg-dark text-white p-4',
                     <button className="btn btn-warning btn-lg">Contact Us</button>
                 </div>
                 <div className="container">
-                    <span className="text-muted">
+                    <div className="text-muted text-center">
                        An Amazing Place to <span className="text-white">Shop</span>
-                    </span>
+                    </div>
                 </div>
             </footer>
         </div>
