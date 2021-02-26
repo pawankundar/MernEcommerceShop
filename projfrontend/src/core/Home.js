@@ -1,4 +1,4 @@
-import React from 'react';
+
 import "../styles.css";
 import {API } from "../backend"
 import Base from './Base';
@@ -11,7 +11,7 @@ return(
     
     <Base Title="Home Page" className="text-white" description ="This is the HomePage">
         <div className="row">
-           
+    
         </div>
     </Base>
 )

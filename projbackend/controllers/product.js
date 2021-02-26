@@ -4,7 +4,7 @@ const _ = require("lodash")
 const fs = require("fs")
 const { sortBy } = require("lodash")
 const { bulkWrite } = require("../models/product")
-
+    
 
 exports.getProductById = (req,res,next,id) =>{
     Product.findById(id).exec((err,product)=>{
