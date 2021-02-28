@@ -41,7 +41,7 @@ exports.updateUser = (req, res) => {
   };
 
 exports.userPurchaseList = (req,res) => {
-Order.find({user : req.profile._id})                // find("Feild to be searched : data to search from")
+Order.find({user : req.profile._id})                // find("Field to be searched : data to search from")
 .populate("user","_id name").exec((err,order)=>{   //populate("model in which changes are made","feilds which will make the changes")
   if(err){
     return res.status(400).json({

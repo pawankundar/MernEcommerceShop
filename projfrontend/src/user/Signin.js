@@ -51,14 +51,14 @@ const onSubmit =(event)=>{
 const performRedirect = () => {
     if (didRedirect) {
       if (user && user.role === 1) {
-        return <p>redirect to admin</p>;
+        <Redirect to='/admin/admindashboard'/>
       } else {
-        return <p>redirect to user dashboard</p>;
+       <Redirect to ='/user/userdashboard'/>
       }
     }
-    // if (isAuthenticate()) {
-    //   return <Redirect to="/" />;
-    // }
+    if (isAuthenticate()) {
+      return <Redirect to="/" />;
+    }
   };
 
     

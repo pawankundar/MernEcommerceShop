@@ -24,15 +24,17 @@ const NavigationMenu =({history})=>(
                 </Link>
             </li>
             <li className="nav-item">
-                <Link style={currentTab(history,'/dashboard')} className='nav-link'>
-                    DashBoard
+                <Link style={currentTab(history,'/dashboard')} className='nav-link' to='/user/userdashboard'>
+                  user  DashBoard
                 </Link>
             </li>
-            <li className="nav-item">
-                <Link style={currentTab(history,'/admindashboard')}  className='nav-link'>
-                    Admin DashBoard
-                </Link>
-            </li>
+         {
+              isAuthenticate() && isAuthenticate().user.role === 1 && ( <li className="nav-item">
+               <Link style={currentTab(history,'/admindashboard')}  className='nav-link' to='/admin/admindashboard'>
+                   Admin DashBoard
+               </Link>
+           </li>)
+         }
            {!isAuthenticate()&&( <Fragment>
             <li className="nav-item">
                 <Link style={currentTab(history,'/signup')} to='/signup' className='nav-link'>
