@@ -2,12 +2,12 @@ import React from 'react'
 import {Route,Redirect} from 'react-router-dom'
 import { isAuthenticate } from '.';
 
-const  AdminRoute = ({ component : component, ...rest }) => {
+const  AdminRoute = ({ component : Component, ...rest }) => {
     return (
       <Route
         {...rest}
         render={props =>
-          isAuthenticate()&&isAuthenticate().user.role === 1 ?<component{...props} />: (
+          isAuthenticate()&&isAuthenticate().user.role === 1 ?<Component{...props} />: (
             <Redirect
               to={{
                 pathname: "/signin",
