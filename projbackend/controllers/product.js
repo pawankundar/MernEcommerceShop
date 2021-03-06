@@ -103,7 +103,7 @@ exports.deleteProduct = (req,res) => {
 }
 
 exports.updateProduct = (req,res) =>{
-    const form = formidable.IncomingForm();
+    let form = formidable.IncomingForm();
     form.keepExtensions = true;
 
     form.parse(req,(err,feilds,files)=>{
@@ -120,15 +120,17 @@ exports.updateProduct = (req,res) =>{
 
 //handling the file
 
-        if(product.photo){
-            if(product.photo.size>300000){           
+        if(files.photo){
+            if(files.photo.size>300000){           
                 return res.status(400).json({
                     error : "size of the image too big"
                 })
             }
-            product.photo.data = fs(files.photo.path)
+            product.photo.data = fs.readFileSync(files.photo.path)
             product.photo.contentType = files.photo.type
         }
+
+//saving in the database
 
         product.save((err,savedProduct)=>{
             if(err){
@@ -136,12 +138,12 @@ exports.updateProduct = (req,res) =>{
                     error : "Product not updated in the database successfully"
                 })
             }
-            res.json({
-                message : "Product updated successfully in the database"
-            })
+            res.json(savedProduct)
+            
         })
     })
 }
+
 
 exports.getAllProducts = (req,res)=>{
     let limit = req.query.limit ? parseInt(req.query.limit) : 8
