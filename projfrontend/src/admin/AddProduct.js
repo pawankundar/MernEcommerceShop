@@ -51,16 +51,18 @@ const AddProduct = () => {
     preload();
   }, []);
 
-  const handleChange = (name) => (event) => {
+  const handleChange = name => event => {
     const value = name === "photo" ? event.target.files[0] : event.target.value;
     formData.set(name, value);
     setValues({ ...values, [name]: value });
   };
 
+
   const onSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true});
     createProduct(user._id, token, formData).then((resp) => {
+      console.log(formData)
       if (resp.err) {
         setValues({ ...values, error: resp.error, createdProduct: false });
       } else {
@@ -185,7 +187,7 @@ const AddProduct = () => {
   );
 
   return (
-    <Base>
+    <Base Title='Create Produts here' description='Add the Prodduct information'>
       {successMessage()}
       {errorMesaage()}
       {createProductForm()}
