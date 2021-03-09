@@ -76,3 +76,56 @@ export const deleteProduct = (pID, uID, token) => {
     .then((resp) => resp.json())
     .catch((err) => console.log(err));
 };
+
+
+export const updateProduct = (pID,uID,token,updatedValue)=>{
+  return fetch(`${API}/product/${pID}/${uID}`,{
+    method : 'PUT',
+    headers :{
+      Accept : 'application/json',
+      Authorization : `Bearer ${token}`
+    },
+    body : updatedValue
+  }).then(resp => resp.json())
+  .catch(err => console.log('error in updateProduct API call'))
+}
+
+
+export const deleteCategory = (categoryId,userId,token) =>{
+  return fetch(`${API}/category/${categoryId}/${userId}`,{
+    method : 'DELETE',
+    headers : {
+      Accept : 'application/json',
+      'Content-Type' : 'application/json',
+      Authorization : `Bearer ${token}`
+    }
+  }).then(resp => resp.json())
+  .catch(err => console.log('error in deleteCategory Api Call'))
+}
+
+
+export const updateCategory = (categoryId,userId,token,updatedValue)=>{
+  return fetch(`${API}/category/${categoryId}/${userId}`,{
+    method : 'PUT',
+    headers : {
+      Accept : 'application/json',
+      "Content-Type": "application/json",
+      Authorization : `Bearer ${token}`
+    },
+    body : JSON.stringify(updatedValue)
+    
+  })
+  .then(resp => resp.json())
+  .catch(error => console.log('Error',error))
+}
+
+
+export const getCategory = (categoryId) => {
+  return fetch(`${API}/category/${categoryId}`, {
+    method: "GET",
+  })
+    .then((resp) => {
+      return resp.json();
+    })
+    .catch((err) => console.log(err));
+};
