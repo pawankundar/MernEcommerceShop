@@ -17,8 +17,9 @@ const adminDashBoard = () => {
           <li className="list-group-item"><Link className='nav-link text-success' to='/admin/create/category'> Create Category</Link></li>   
           <li className="list-group-item"><Link className='nav-link text-success' to='/admin/manage/category'> Manage Category</Link></li>   
           <li className="list-group-item"><Link className='nav-link text-success' to='/admin/create/product'> Create Products</Link></li>
-          <li className="list-group-item"><Link className='nav-link text-success' to='/admin/products'> Manage Orders</Link></li>
           <li className="list-group-item"><Link className='nav-link text-success' to='/admin/manage/product'> Manage Products</Link></li>
+          <li className="list-group-item"><Link className='nav-link text-success' to='/admin/products'> Manage Orders</Link></li>
+          
         </ul>
       </div>
     );
