@@ -110,6 +110,17 @@ const AddProduct = () => {
     </div>
   );
 
+  const goBack = () => {
+    return (
+      <div className="mt-5">
+        <Link className="btn btn-sm btn-info mb-3 " to="/admin/admindashboard">
+          Go to Admin Panel
+        </Link>
+      </div>
+    );
+  };
+
+
   const createProductForm = () => (
     <form>
       <span>Post photo</span>
@@ -188,6 +199,7 @@ const AddProduct = () => {
 
   return (
     <Base Title='Create Produts here' description='Add the Prodduct information'>
+      {goBack()}
       {successMessage()}
       {errorMesaage()}
       {createProductForm()}
