@@ -129,3 +129,11 @@ export const getCategory = (categoryId) => {
     })
     .catch((err) => console.log(err));
 };
+
+
+export const getPhotos = (productId)=>{
+  return fetch(`${API}/product/photo/${productId}`,{
+    method:'GET'
+  }).then(resp =>resp.json())
+  .catch(err => console.log(err))
+}
