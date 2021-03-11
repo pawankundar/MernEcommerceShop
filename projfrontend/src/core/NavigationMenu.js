@@ -19,7 +19,7 @@ const NavigationMenu =({history})=>(
                 </Link>
             </li>
             <li className="nav-item">
-                <Link style={currentTab(history,'/cart')} className='nav-link'>
+                <Link style={currentTab(history,'/cart')} className='nav-link' to='/cart'>
                 Cart
                 </Link>
             </li>
