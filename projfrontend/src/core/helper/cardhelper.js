@@ -22,15 +22,20 @@ export const loadProducts = ()=>{
 }
 
 
-export const removeItemFromCart = (item,next) =>{
+export const removeItemFromCart = (productId)=>{
     let cart = []
-
     if(typeof window !== undefined){
         if(localStorage.getItem('cart')){
             cart = JSON.parse(localStorage.getItem('cart'))
         }
-        cart.pop({...item})
+
+        cart.map((prod,index)=>{
+            if(prod._id === productId){
+                cart.splice(index,1)
+            }
+        })
         localStorage.setItem('cart',JSON.stringify(cart))
-        next()
     }
 }
+
+//  youKnow === more ? dontKnow : knowEveyThing

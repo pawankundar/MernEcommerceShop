@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import Base from "../core/Base";
 import Card from "../core/card";
 import { loadProducts } from "../core/helper/cardhelper";
+import StripeCheckOut from "../core/StripeCheckOut";
 
 const Cart = () => {
   const [products, setProduct] = useState([]);
+  const [force , setForce] = useState(false)
 
   useEffect(() => {
     console.log(products);
     setProduct(loadProducts());
-  }, []);
+  }, [force]);
 
   const cartProducts = () => (
     <div >
@@ -20,14 +22,10 @@ const Cart = () => {
           product={prod}
           showAddtoCart={false}
           showRemovefromCart={true}
+          setForce = {setForce}
+          force = {force}
         ></Card>
       ))}
-    </div>
-  );
-
-  const checkOutSection = () => (
-    <div>
-      <h2>CheckOut</h2>
     </div>
   );
 
@@ -36,7 +34,7 @@ const Cart = () => {
       <div className="row text-center">
         <div className="row">
           <div className="col-6">{cartProducts()}</div>
-          <div className="col-6">{checkOutSection()}</div>
+          <div className="col-6"><StripeCheckOut products={products}/></div>
         </div>
       </div>
     </Base>

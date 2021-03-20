@@ -7,6 +7,8 @@ const Card = ({
   showAddtoCart = true,
   showRemovefromCart = false,
   product,
+  setForce = f => f,
+  force = undefined
 }) => {
   const cardName = product ? product.name : "Default Card name";
   const cardDescription = product ? product.description : "Default description";
@@ -22,17 +24,12 @@ const Card = ({
     )
   }
 
-  const removeProduct = ()=>{
-    removeItemFromCart(product,()=>{
-      window.location.reload();
-    }
-      
-    )
-  }
 
+      
+ 
   const performReload = (r)=>{
     if(r){
-   return   <Redirect to='/cart'/>
+   return<Redirect to='/cart'/>
     }
   }
 
@@ -55,7 +52,10 @@ const Card = ({
     return (
       value && (
         <button
-          onClick={removeProduct}
+          onClick={()=>{
+            removeItemFromCart(product._id)
+            setForce(!force)
+          }}
           className="btn btn-block btn-outline-danger mt-2 mb-2"
         >
           Remove from cart
