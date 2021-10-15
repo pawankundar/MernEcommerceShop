@@ -21,10 +21,9 @@ exports.stripePayment = (req,res)=>{
             customer : customer.id,
             receipt_email : token.mail
         },{idempotencyKey: impodencyKey})
-        .then(resp =>{
-            resp.json()
-        })
-        .catch(err => console.log(err))
+        .then(result => res.status(200).json(result))
+        .catch(err => console.log(err));
+
     })
     
   

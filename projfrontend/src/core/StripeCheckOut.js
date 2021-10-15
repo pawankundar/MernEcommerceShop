@@ -37,7 +37,7 @@ const StripeCheckOut = ({
   const showPaymentButton = () => {
     return isAuthenticate() ? (
       <StripeCheckOutBtn
-        stripeKey="pk_test_51IVvZ7E0KPQj3Ps4I62d98y5PY0KucS0kwY3XIboC9Vo9pcEzZWvO9QhZggufIIdkFn0acWYc8XErdtZAHFfL3As00nM5Aey3t"
+        stripeKey={process.env.REACT_APP_SECRETKEY}
         token={makePayment}
         currency="inr"
         amount={finalAmount() * 100}
