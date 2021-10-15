@@ -97,7 +97,7 @@ return(
     {successPopUp()}
     {errorPopup()}
     {signUpForm()}
-<p className="text-white text-center">{JSON.stringify(value)}</p>
+
 </Base>)
 }
 

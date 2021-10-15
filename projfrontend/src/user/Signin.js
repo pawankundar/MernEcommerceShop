@@ -121,8 +121,6 @@ const performRedirect = () => {
     {errorMessage()}
     {signInForm()}
     {performRedirect()}
-        
-    <p className="text-white text-center">{JSON.stringify(value)}</p>
     </Base>
 )}
 
